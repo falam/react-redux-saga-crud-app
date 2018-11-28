@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
-import { Route } from 'react-router-dom'
+import Header from './common/Header';
+import { Switch, Route, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
 import '../App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Route path="/" exact component={HomePage} />
-        <Route path="/about" component={AboutPage} />
+        <Header/>
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(connect()(App));
