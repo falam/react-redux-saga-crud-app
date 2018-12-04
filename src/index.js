@@ -5,12 +5,14 @@ import {Provider} from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom'
 import configureStore from './store/configureStore';
 //import routes from './routes';
+import {loadBooks} from './actions/bookActions';
 import './index.css';
 import App from './components/App';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 
 const store = configureStore();
+store.dispatch(loadBooks());
 
 ReactDOM.render(
   <Provider store={store}>
