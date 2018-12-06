@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HomePage from './home/HomePage';
 import BooksPage from './book/BooksPage';
+import ManageBookPage from './book/ManageBookPage';
 import AboutPage from './about/AboutPage';
 import Header from './common/Header';
 import { Switch, Route, withRouter } from 'react-router-dom'
@@ -14,7 +15,8 @@ class App extends Component {
         <Header/>
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/books" exact render={() => <BooksPage/>}/>
+          <Route path="/books" exact component={BooksPage} />
+          <Route path="/book" exact component={ManageBookPage} />
           <Route path="/about" component={AboutPage} />
         </Switch>
       </div>

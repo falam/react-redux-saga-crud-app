@@ -12,6 +12,7 @@ const BookList = ({books}) => {
         <th>Author</th>
         <th>Publisher</th>
         <th>Pages</th>
+        {/*<th>Website</th>*/}
       </tr>
       </thead>
       <tbody>

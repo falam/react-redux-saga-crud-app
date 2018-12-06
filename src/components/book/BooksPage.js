@@ -8,7 +8,7 @@ import BookList from './BookList';
 class BooksPage extends React.Component {
   constructor(props, context) {
     super(props, context);
-    //this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
+    this.redirectToAddBookPage = this.redirectToAddBookPage.bind(this);
   }
 
   bookRow(book, index) {
@@ -20,12 +20,12 @@ class BooksPage extends React.Component {
     */
   }
 
-  redirectToAddCoursePage() {
-    //browserHistory.push('/course');
+  redirectToAddBookPage() {
+    this.props.history.push('/book');
   }
 
   render() {
-    const {books} = this.props;
+    const {books, history} = this.props;
 
     return (
       <div>
@@ -33,8 +33,9 @@ class BooksPage extends React.Component {
         <input type="submit"
                value="Add Books"
                className="btn btn-primary"
-               //onClick={this.redirectToAddCoursePage}
+               onClick={this.redirectToAddBookPage}
                />
+             <br/><br/>
         <BookList books={books} />
       </div>
     );

@@ -10,6 +10,7 @@ const BookListRow = ({book}) => {
       <td>{book.author}</td>
       <td>{book.publisher}</td>
       <td>{book.pages}</td>
+      {/*<td><a href={book.website} target="_blank">{book.title}</a></td>*/}
     </tr>
   );
 };
