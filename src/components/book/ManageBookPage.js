@@ -52,6 +52,10 @@ export class ManageBookPage extends React.Component {
       errors.title = 'Title must be at least 5 characters.';
       formIsValid = false;
     }
+    if (this.state.book.publisher.length < 3) {
+      errors.publisher = 'Publisher must be at least 3 characters.';
+      formIsValid = false;
+    }
 
     this.setState({errors: errors});
     return formIsValid;

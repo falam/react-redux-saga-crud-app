@@ -27,14 +27,14 @@ const BookForm = ({book, allAuthors, onSave, onChange, saving, errors}) => {
     label="Publisher"
     value={book.publisher}
     onChange={onChange}
-    error={errors.category}/>
+    error={errors.publisher}/>
 
   <TextInput
-    name="pages"
-    label="Pages"
+    name="website"
+    label="Website"
     value={book.website}
     onChange={onChange}
-    error={errors.length}/>
+    error={errors.website}/>
 
   <input
     type="submit"
