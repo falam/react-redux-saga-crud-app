@@ -25,7 +25,7 @@ class BooksPage extends React.Component {
   }
 
   render() {
-    const {books, history} = this.props;
+    const {books} = this.props;
 
     return (
       <div>
