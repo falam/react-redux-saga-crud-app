@@ -3,6 +3,7 @@ import HomePage from './home/HomePage';
 import BooksPage from './book/BooksPage';
 import ManageBookPage from './book/ManageBookPage';
 import AboutPage from './about/AboutPage';
+import LogoPage from './about/LogoPage';
 import Header from './common/Header';
 import NoMatchPage from './common/NoMatchPage';
 import { Switch, Route, withRouter } from 'react-router-dom'
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/book/:isbn" component={ManageBookPage} />
           <Route path="/book" component={ManageBookPage} />
           <Route path="/about" component={AboutPage} />
+          <Route path="/logo" component={LogoPage} />
           <Route component={NoMatchPage} />
         </Switch>
       </div>
