@@ -6,6 +6,14 @@ export function loadBooksSuccess(books) {
   return { type: types.LOAD_BOOKS_SUCCESS, books};
 }
 
+export function createBookSuccess(book) {
+  return {type: types.CREATE_BOOK_SUCCESS, book};
+}
+
+export function updateBookSuccess(book) {
+  return {type: types.UPDATE_BOOK_SUCCESS, book};
+}
+
 export function loadBooks() {
   return function(dispatch) {
     dispatch(beginAjaxCall());
@@ -20,13 +28,15 @@ export function loadBooks() {
 export function saveBook(book) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    /*
-    return courseApi.saveCourse(course).then(course => {
-      course.id ? dispatch(updateCourseSuccess(course)) :
-        dispatch(createCourseSuccess(course));
+
+    let updateMode = book.isbn ? true : false;
+
+    return bookApi.saveBook(book).then(book => {
+      book.isbn && updateMode ? dispatch(updateBookSuccess(book)) :
+        dispatch(createBookSuccess(book));
     }).catch(error => {
       dispatch(ajaxCallError(error));
       throw(error);
-    });*/
+    });
   };
 }

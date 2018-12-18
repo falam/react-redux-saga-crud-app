@@ -95,6 +95,22 @@ const books = [
     }
   ];
 
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
+//This would be performed on the server in a real app. Just stubbing in.
+const generateId = (book) => {
+  //return replaceAll(book.title, ' ', '-');
+  return getRandomIntInclusive(1000000000000, 9999999999999) + '';
+};
+
   class BookApi {
   static getAllBooks() {
     return new Promise((resolve, reject) => {
@@ -103,6 +119,33 @@ const books = [
       }, delay);
     });
   }
+
+  static saveBook(book) {
+  book = Object.assign({}, book); // to avoid manipulating object passed in.
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // Simulate server-side validation
+      const minBookTitleLength = 4;
+      if (book.title.length < minBookTitleLength) {
+        reject(`Title must be at least ${minBookTitleLength} characters.`);
+      }
+
+      if (book.isbn) {
+        const existingBookIndex = books.findIndex(a => a.isbn == book.isbn);
+        books.splice(existingBookIndex, 1, book);
+      } else {
+        //Just simulating creation here.
+        //The server would generate ids and watchHref's for new courses in a real app.
+        //Cloning so copy returned is passed by value rather than by reference.
+        book.isbn = generateId(book);
+        //book.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
+        books.push(book);
+      }
+
+      resolve(book);
+    }, delay);
+  });
+}
 }
 
 export default BookApi;

@@ -30,6 +30,7 @@ export class ManageBookPage extends React.Component {
   }
 */
 
+  // Necessary to populate form when existing book is loaded directly.
   static getDerivedStateFromProps(nextProps, prevState){
     if(nextProps.book.isbn !== prevState.book.isbn){
       return { book: nextProps.book};
@@ -48,8 +49,8 @@ export class ManageBookPage extends React.Component {
     let formIsValid = true;
     let errors = {};
 
-    if (this.state.book.title.length < 5) {
-      errors.title = 'Title must be at least 5 characters.';
+    if (this.state.book.title.length < 4) {
+      errors.title = 'Title must be at least 4 characters.';
       formIsValid = false;
     }
     if (this.state.book.publisher.length < 3) {
@@ -81,7 +82,7 @@ export class ManageBookPage extends React.Component {
   redirect() {
     this.setState({saving: false});
     //toastr.success('Book saved');
-    this.context.router.push('/books');
+    this.context.router.history.push('/books');
   }
 
   render() {
@@ -118,7 +119,7 @@ function getBookByIsbn(books, isbn) {
 function mapStateToProps(state, ownProps) {
   const bookId = ownProps.match.params.isbn; // from the path `/book/:isbn`
 
-  let book = {isbn: '', title: 'default title', authorId: '', publisher: ''};
+  let book = {isbn: '', title: '', authorId: '', publisher: ''};
 
   if (bookId && state.books.length > 0) {
     book = getBookByIsbn(state.books, bookId);
