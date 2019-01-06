@@ -95,9 +95,11 @@ const books = [
     }
   ];
 
+/*
 function replaceAll(str, find, replace) {
   return str.replace(new RegExp(find, 'g'), replace);
 }
+*/
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
