@@ -13,15 +13,14 @@ const BookForm = ({book, allAuthors, onSave, onChange, saving, errors}) => {
     value={book.title}
     onChange={onChange}
     error={errors.title}/>
-  {/*
   <SelectInput
-    name="authorId"
+    name="author"
     label="Author"
-    value={book.authorId}
+    value={book.author}
     defaultOption="Select Author"
     options={allAuthors}
-    onChange={onChange} error={errors.authorId}/>
-*/}
+    onChange={onChange}
+    error={errors.authorId}/>
   <TextInput
     name="publisher"
     label="Publisher"

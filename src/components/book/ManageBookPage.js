@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as bookActions from '../../actions/bookActions';
 import BookForm from './BookForm';
-//import {authorsFormattedForDropdown} from '../../selectors/selectors';
+import {authorsFormattedForDropdown} from '../../selectors/selectors';
 //import toastr from 'toastr';
 
 export class ManageBookPage extends React.Component {
@@ -101,7 +101,7 @@ export class ManageBookPage extends React.Component {
 
 ManageBookPage.propTypes = {
   book: PropTypes.object.isRequired,
-  //authors: PropTypes.array.isRequired,
+  authors: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -119,7 +119,7 @@ function getBookByIsbn(books, isbn) {
 function mapStateToProps(state, ownProps) {
   const bookId = ownProps.match.params.isbn; // from the path `/book/:isbn`
 
-  let book = {isbn: '', title: '', authorId: '', publisher: ''};
+  let book = {isbn: '', title: '', author: '', publisher: ''};
 
   if (bookId && state.books.length > 0) {
     book = getBookByIsbn(state.books, bookId);
@@ -127,7 +127,7 @@ function mapStateToProps(state, ownProps) {
 
   return {
     book: book,
-    authors: state.authors //FormattedForDropdown(state.authors)
+    authors: authorsFormattedForDropdown(state.authors)
   };
 }
 

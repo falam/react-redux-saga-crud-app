@@ -10,14 +10,44 @@ const authors = [
     lastName: 'House'
   },
   {
-    id: 'scott-allen',
-    firstName: 'Scott',
-    lastName: 'Allen'
+    id: 'Addy-Osmani',
+    firstName: 'Addy',
+    lastName: 'Osmani'
   },
   {
-    id: 'dan-wahlin',
-    firstName: 'Dan',
-    lastName: 'Wahlin'
+    id: 'Axel-Rauschmayer',
+    firstName: 'Axel',
+    lastName: 'Rauschmayer'
+  },
+  {
+    id: 'Marijn-Haverbeke',
+    firstName: 'Marijn',
+    lastName: 'Haverbeke'
+  },
+  {
+    id: 'Eric-Elliott',
+    firstName: 'Eric',
+    lastName: 'Elliott'
+  },
+  {
+    id: 'Nicholas-C-Zakas',
+    firstName: 'Nicholas C.',
+    lastName: 'Zakas'
+  },
+  {
+    id: 'Kyle-Simpson',
+    firstName: 'Kyle',
+    lastName: 'Simpson'
+  },
+  {
+    id: 'Richard-E-Silverman',
+    firstName: 'Richard E.',
+    lastName: 'Silverman'
+  },
+  {
+    id: 'Glenn-Block-et-al',
+    firstName: 'Glenn Block,',
+    lastName: 'et al.'
   }
 ];
 
