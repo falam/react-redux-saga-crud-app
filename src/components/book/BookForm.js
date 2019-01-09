@@ -7,7 +7,7 @@ const BookForm = ({book, allAuthors, onSave, onChange, saving, errors}) => {
   return (
     <form>
       <h1>Manage Book</h1>
-        <TextInput
+  <TextInput
     name="title"
     label="Title"
     value={book.title}
